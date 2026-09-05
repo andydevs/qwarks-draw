@@ -7,29 +7,35 @@ A Rust/WebAssembly canvas drawing library for the browser (edition 2024), compil
 
 Two Cargo crates in this repo:
 
-- **`src/`** — the `jarsdraw` library (`cdylib` + `rlib`).
+- **`src/`** — the `jarsdraw` library (`rlib`).
   - `canvas.rs` — `Canvas`: wraps an `HtmlCanvasElement` + `CanvasRenderingContext2d`;
     `Canvas::from_selector` binds to a DOM element, `Canvas::draw` dispatches to a `Draw`.
   - `draw.rs` — `Draw` trait: implemented by anything that can render itself onto a `Canvas`.
   - `macros.rs` — internal `builder_fn!`/`builder_fns!` macros for generating chainable
     "with"-style setter methods, one at a time or as a whole `impl` block, with an
     auto-generated docstring skeleton around a one-clause description per field (used by
-    `polyline.rs`, `circle.rs`, `line.rs`, and `styled.rs`); not part of the public API.
-  - `polyline.rs` — `Polyline`: a `Draw` primitive rendering a connected sequence of points.
-  - `circle.rs` — `Circle`: a `Draw` primitive rendering a circle, with `fill`/`stroke`
-    booleans toggling whether each is drawn.
-  - `line.rs` — `Line`: a `Draw` primitive rendering a single straight segment, with
-    `fill`/`stroke` booleans toggling whether each is drawn.
-  - `styled.rs` — `Style`/`Styled`: chainable stroke styling (`Styled::new(shape).stroke(..).line_width(..)`)
-    layered on top of any `Draw` shape.
+    the `primitives/` modules and `styled.rs`); not part of the public API.
+  - `primitives.rs` + `primitives/` — the `Draw` shape primitives, each re-exported from
+    `primitives.rs`.
+    - `primitives/polyline.rs` — `Polyline`: a `Draw` primitive rendering a connected
+      sequence of points.
+    - `primitives/circle.rs` — `Circle`: a `Draw` primitive rendering a circle, with
+      `fill`/`stroke` booleans toggling whether each is drawn.
+    - `primitives/line.rs` — `Line`: a `Draw` primitive rendering a single straight, stroked
+      segment.
+    - `primitives/rect.rs` — `Rect`: a `Draw` primitive rendering an axis-aligned rectangle,
+      with `fill`/`stroke` booleans toggling whether each is drawn.
+  - `styled.rs` — `Style`/`Styled`: chainable stroke/fill styling
+    (`Styled::new(shape).stroke(..).line_width(..).fill(..)`) layered on top of any `Draw`
+    shape.
   - `lib.rs` — re-exports the public API: `Canvas`, `Draw`, `Polyline`, `Circle`, `Line`,
-    `Style`, `Styled`.
+    `Rect`, `Style`, `Styled`.
 - **`demo/`** — a separate `jarsdraw-demo` crate plus a webpack/JS front end (`demo/index.js`,
   `demo/index.html`, `demo/bootstrap.js`) that exercises the library: a responsive grid of
   showcase canvases, each backed by its own standalone `#[wasm_bindgen]` demo module in
   `demo/src/` (e.g. `circle.rs` → `CircleCanvas`) that draws and resizes independently, wired
   up via `wasm-bindgen`. Current showcases: `star.rs` (a closed `Polyline` star), `circle.rs`
-  (a filled/stroked `Circle`), and `line.rs` (a `Line` sunburst).
+  (a filled/stroked `Circle`), and `line.rs` (a single `Line` segment).
 
 ## Conventions
 

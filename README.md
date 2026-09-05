@@ -37,8 +37,8 @@ canvas.draw(&line);
 ```
 
 - `Draw` is the trait implemented by every drawable primitive (currently `Polyline`, `Circle`,
-  and `Line`).
-- `Circle` and `Line` each take chainable `fill(bool)`/`stroke(bool)` toggles controlling
+  `Line`, and `Rect`).
+- `Circle` and `Rect` each take chainable `fill(bool)`/`stroke(bool)` toggles controlling
   whether they're filled and/or stroked when drawn.
 - `Styled::new(shape)` wraps any `Draw` value so its stroke color, line width, and fill color
   can be set via chained calls before drawing.
