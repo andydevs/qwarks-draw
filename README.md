@@ -40,8 +40,8 @@ canvas.draw(&line);
   and `Line`).
 - `Circle` and `Line` each take chainable `fill(bool)`/`stroke(bool)` toggles controlling
   whether they're filled and/or stroked when drawn.
-- `Styled::new(shape)` wraps any `Draw` value so its stroke color and line width can be set
-  via chained calls before drawing.
+- `Styled::new(shape)` wraps any `Draw` value so its stroke color, line width, and fill color
+  can be set via chained calls before drawing.
 
 ### Building the WASM Package
 

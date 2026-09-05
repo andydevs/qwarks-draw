@@ -51,8 +51,9 @@ impl CircleCanvas {
 
         // Draw circle
         let styled = Styled::new(Circle::new(cx, cy, radius).fill(true).stroke(true))
-            .stroke("#3b82f6")
-            .line_width(3.0);
+            .stroke("#22c55e")
+            .line_width(6.0)
+            .fill("#86efac");
         self.canvas.draw(&styled);
     }
 }
