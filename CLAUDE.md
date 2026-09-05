@@ -14,16 +14,22 @@ Two Cargo crates in this repo:
   - `macros.rs` — internal `builder_fn!`/`builder_fns!` macros for generating chainable
     "with"-style setter methods, one at a time or as a whole `impl` block, with an
     auto-generated docstring skeleton around a one-clause description per field (used by
-    `polyline.rs` and `styled.rs`); not part of the public API.
+    `polyline.rs`, `circle.rs`, `line.rs`, and `styled.rs`); not part of the public API.
   - `polyline.rs` — `Polyline`: a `Draw` primitive rendering a connected sequence of points.
+  - `circle.rs` — `Circle`: a `Draw` primitive rendering a circle, with `fill`/`stroke`
+    booleans toggling whether each is drawn.
+  - `line.rs` — `Line`: a `Draw` primitive rendering a single straight segment, with
+    `fill`/`stroke` booleans toggling whether each is drawn.
   - `styled.rs` — `Style`/`Styled`: chainable stroke styling (`Styled::new(shape).stroke(..).line_width(..)`)
     layered on top of any `Draw` shape.
-  - `lib.rs` — re-exports the public API: `Canvas`, `Draw`, `Polyline`, `Style`, `Styled`.
+  - `lib.rs` — re-exports the public API: `Canvas`, `Draw`, `Polyline`, `Circle`, `Line`,
+    `Style`, `Styled`.
 - **`demo/`** — a separate `jarsdraw-demo` crate plus a webpack/JS front end (`demo/index.js`,
   `demo/index.html`, `demo/bootstrap.js`) that exercises the library: a responsive grid of
   showcase canvases, each backed by its own standalone `#[wasm_bindgen]` demo module in
-  `demo/src/` (e.g. `square.rs` → `SquareCanvas`) that draws and resizes independently, wired
-  up via `wasm-bindgen`.
+  `demo/src/` (e.g. `circle.rs` → `CircleCanvas`) that draws and resizes independently, wired
+  up via `wasm-bindgen`. Current showcases: `star.rs` (a closed `Polyline` star), `circle.rs`
+  (a filled/stroked `Circle`), and `line.rs` (a `Line` sunburst).
 
 ## Conventions
 

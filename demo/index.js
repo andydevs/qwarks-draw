@@ -1,12 +1,16 @@
 /**
  * Demo entry point. Builds a responsive grid of showcase canvases, each bound to its own
- * per-shape canvas class (e.g. SquareCanvas). Every tile resizes its canvas to fill its
+ * per-shape canvas class (e.g. CircleCanvas). Every tile resizes its canvas to fill its
  * container and redraws on the window's `resize` event, so its shape stays correctly
  * scaled as the grid reflows.
  */
-import { SquareCanvas } from 'jarsdraw-demo'
+import { CircleCanvas, LineCanvas, StarCanvas } from 'jarsdraw-demo'
 
-const SHOWCASE_ITEMS = [{ selector: '#jarsdraw-canvas-square', Canvas: SquareCanvas }]
+const SHOWCASE_ITEMS = [
+    { selector: '#jarsdraw-canvas-star', Canvas: StarCanvas },
+    { selector: '#jarsdraw-canvas-circle', Canvas: CircleCanvas },
+    { selector: '#jarsdraw-canvas-line', Canvas: LineCanvas },
+]
 
 for (const { selector, Canvas } of SHOWCASE_ITEMS) {
     // Create showcase canvas
