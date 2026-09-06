@@ -15,7 +15,7 @@ Add `jarsdraw` to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-jarsdraw = { path = "/path/to/jarsdraw" }
+jarsdraw = { path = "/path/to/jarsdraw/jarsdraw" }
 ```
 
 ## Usage
@@ -48,6 +48,7 @@ canvas.draw(&line);
 Build the library with `wasm-pack` targeting your preferred bundler:
 
 ```sh
+cd jarsdraw
 wasm-pack build --target bundler
 ```
 
@@ -68,5 +69,6 @@ This builds the Rust WASM code, starts a file watcher to rebuild on changes, and
 ### Testing
 
 ```sh
+cd jarsdraw
 wasm-pack test --firefox
 ```

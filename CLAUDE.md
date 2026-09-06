@@ -7,7 +7,7 @@ A Rust/WebAssembly canvas drawing library for the browser (edition 2024), compil
 
 Two Cargo crates in this repo:
 
-- **`src/`** — the `jarsdraw` library (`rlib`).
+- **`jarsdraw/`** — the `jarsdraw` library (`rlib`); `jarsdraw/src/`:
   - `canvas.rs` — `Canvas`: wraps an `HtmlCanvasElement` + `CanvasRenderingContext2d`;
     `Canvas::from_selector` binds to a DOM element, `Canvas::draw` dispatches to a `Draw`.
   - `draw.rs` — `Draw` trait: implemented by anything that can render itself onto a `Canvas`.
@@ -41,15 +41,15 @@ Two Cargo crates in this repo:
 ## Conventions
 
 - Every public function/type/trait carries a `///` docstring with `# Parameters`, `# Returns`,
-  `# Errors`/`# Panics`, and `# Side Effects` sections where applicable (see any file in `src/`
-  for the pattern). Trait methods and their impls are each documented individually — the impl's
-  doc describes what that specific implementation does.
-- Keep this file and `README.md` in sync with `src/lib.rs`'s module list whenever a module is
-  added, renamed, or removed.
+  `# Errors`/`# Panics`, and `# Side Effects` sections where applicable (see any file in
+  `jarsdraw/src/` for the pattern). Trait methods and their impls are each documented
+  individually — the impl's doc describes what that specific implementation does.
+- Keep this file and `README.md` in sync with `jarsdraw/src/lib.rs`'s module list whenever a
+  module is added, renamed, or removed.
 
 ## Commands
 
-- `cargo check` / `cargo check` (from `demo/`) — type-check both crates.
-- `wasm-pack build --target bundler` — build the library crate to `pkg/`.
-- `wasm-pack test --firefox` — run the library's wasm-bindgen tests.
+- `cd jarsdraw && cargo check` / `cd demo && cargo check` — type-check both crates.
+- `cd jarsdraw && wasm-pack build --target bundler` — build the library crate to `pkg/`.
+- `cd jarsdraw && wasm-pack test --firefox` — run the library's wasm-bindgen tests.
 - `cd demo && npm start` — build the Rust WASM, watch for changes, and serve the demo page.

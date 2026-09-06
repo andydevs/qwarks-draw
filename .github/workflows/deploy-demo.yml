@@ -30,7 +30,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
         with:
           workspaces: |
-            .
+            jarsdraw
             demo
 
       - name: Install wasm-pack

@@ -5,7 +5,7 @@
     "private": true,
     "main": "index.js",
     "scripts": {
-        "start:rust": "cross-env CHOKIDAR_USEPOLLING=1 chokidar 'Cargo.toml' 'src/**/*.rs' '../src/**/*.rs' -c \"npm run build:rust\"",
+        "start:rust": "cross-env CHOKIDAR_USEPOLLING=1 chokidar 'Cargo.toml' 'src/**/*.rs' '../jarsdraw/src/**/*.rs' -c \"npm run build:rust\"",
         "start:web": "webpack serve --mode development",
         "build:web": "webpack --mode production",
         "build:rust": "wasm-pack build --target bundler --out-dir pkg",

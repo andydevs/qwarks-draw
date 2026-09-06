@@ -32,7 +32,7 @@
             "command": "cargo",
             "args": ["check"],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}/jarsdraw"
             },
             "problemMatcher": ["$rustc"],
             "group": "build"

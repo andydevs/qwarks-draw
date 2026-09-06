@@ -1,7 +1,7 @@
 {
     "rust-analyzer.cargo.target": "wasm32-unknown-unknown",
     "rust-analyzer.linkedProjects": [
-        "Cargo.toml",
+        "jarsdraw/Cargo.toml",
         "demo/Cargo.toml"
     ]
 }
