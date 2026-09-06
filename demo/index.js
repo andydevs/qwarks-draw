@@ -4,12 +4,13 @@
  * container and redraws on the window's `resize` event, so its shape stays correctly
  * scaled as the grid reflows.
  */
-import { CircleCanvas, LineCanvas, StarCanvas } from 'jarsdraw-demo'
+import { CircleCanvas, LineCanvas, RectCanvas, StarCanvas } from 'jarsdraw-demo'
 
 const SHOWCASE_ITEMS = [
     { selector: '#jarsdraw-canvas-star', Canvas: StarCanvas },
     { selector: '#jarsdraw-canvas-circle', Canvas: CircleCanvas },
     { selector: '#jarsdraw-canvas-line', Canvas: LineCanvas },
+    { selector: '#jarsdraw-canvas-rect', Canvas: RectCanvas },
 ]
 
 for (const { selector, Canvas } of SHOWCASE_ITEMS) {

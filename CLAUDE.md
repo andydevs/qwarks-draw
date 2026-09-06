@@ -35,7 +35,8 @@ Two Cargo crates in this repo:
   showcase canvases, each backed by its own standalone `#[wasm_bindgen]` demo module in
   `demo/src/` (e.g. `circle.rs` → `CircleCanvas`) that draws and resizes independently, wired
   up via `wasm-bindgen`. Current showcases: `star.rs` (a closed `Polyline` star), `circle.rs`
-  (a filled/stroked `Circle`), and `line.rs` (a single `Line` segment).
+  (a filled/stroked `Circle`), `line.rs` (a single `Line` segment), and `rect.rs` (a
+  filled/stroked `Rect`).
 
 ## Conventions
 

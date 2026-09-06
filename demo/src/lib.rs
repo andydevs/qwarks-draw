@@ -6,6 +6,7 @@ use wasm_bindgen::prelude::*;
 
 mod circle;
 mod line;
+mod rect;
 mod star;
 
 /// Initialize console panic hook
