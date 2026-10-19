@@ -1,3 +1,5 @@
+> Deprecated: Moved to main [QWARKS](https://github.com/andydevs/qwarks) repository.
+
 # Jarsdraw
 
 A Rust/WebAssembly canvas drawing library for the browser, built with `wasm-bindgen`.
